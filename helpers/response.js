@@ -1,4 +1,8 @@
-const createResponse = (status, body) => ({ status, body })
+const createResponse = (status, body, headers = {}) => ({ 
+    status, 
+    body, 
+    headers 
+})
 
 const commonResponses = {
     max_requests_reached: createResponse(400, {
