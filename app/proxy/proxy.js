@@ -4,7 +4,7 @@ const { addMetric } = require('../monitoring/metrics')
 const { commonResponses } = require('../../helpers/response')
 
 const createRequestObject = req => ({
-    url: 'oi',
+    url: 'http://httpbin.org',
     path: req.path,
     ip: req.ip,
     headers: req.headers,
@@ -43,9 +43,8 @@ const proxy = async (req, repository) => {
     if (rulePath) 
         await addRequestCount(repository, pathKey, rulePath._source.expiration_every)
 
-    callApi(reqObject)
     await addMetric(reqObject, repository)
-    return { status: 200, body: { api: 'success' } }
+    return await callApi(reqObject)
 }
 
 const getRequestCount = async (repository, key) => {

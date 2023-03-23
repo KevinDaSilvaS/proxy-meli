@@ -27,7 +27,10 @@ app.use(async (req, res, next) => {
     return next()
   }
 
-  const {status, body} = await proxy.proxy(req, repository)
+  const {status, body, headers} = await proxy.proxy(req, repository)
+
+  res.headers = { ...res.headers, ...headers }
+
   return res.status(status).send(body)
 })
 
