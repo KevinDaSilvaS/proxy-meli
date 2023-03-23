@@ -4,7 +4,7 @@ const port = 3000
 const rules = require('./app/rules/rules')
 const metrics = require('./app/monitoring/metrics')
 const proxy = require('./app/proxy/proxy')
-const routes = require('./config/routes')
+const routes = require('./helpers/routes')
 const cacheRepository = require('./repository/cache-repository')
 const dbRepository = require('./repository/elasticsearch-repository')
 
