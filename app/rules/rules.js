@@ -1,4 +1,4 @@
-const { commonResponses } = require('../../helpers/response')
+const { commonResponses, createResponse } = require('../../helpers/response')
 
 const supportedRuleTypes = {
     ip: "ip",
@@ -16,26 +16,24 @@ const addRule = async (rule, repository) => {
 
     const supportedType = supportedRuleTypes[type]
 
-    if (!supportedType) {
+    if (!supportedType)
         return commonResponses.rule_type_not_supported
-    }
 
     const existingRule = await getRule(type, repository)
-    if (existingRule) {
+    if (existingRule)
         return commonResponses.rule_type_already_exists
-    }
 
     const createdRule = await repository.db.create(
         rule, 
         index, 
         repository.dbConn)
 
-    return { status: 201, body: createdRule } 
+    return createResponse(201, createdRule)
 }
 
 const removeRule = async (type, repository) => {
     await repository.db.remove({type}, index, repository.dbConn)
-    return { status: 204, body: {} }
+    return createResponse(204, {})
 }
 
 module.exports = {
