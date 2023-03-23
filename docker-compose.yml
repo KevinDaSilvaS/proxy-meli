@@ -4,8 +4,8 @@ services:
     elasticsearch:
         image: elasticsearch:8.6.2
         ports:
-            - "9200:9200"
-            - "9300:9300"
+            - "${DB_PORT}:9200"
+            - "${DB_SND_PORT}:9300"
         environment:
             - discovery.type=single-node
             - xpack.security.enabled=false

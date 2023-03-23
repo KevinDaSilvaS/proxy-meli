@@ -4,7 +4,7 @@ const { addMetric } = require('../monitoring/metrics')
 const { commonResponses } = require('../../helpers/response')
 
 const createRequestObject = req => ({
-    url: 'http://httpbin.org',
+    url: process.env.API_URL,
     path: req.path,
     ip: req.ip,
     headers: req.headers,

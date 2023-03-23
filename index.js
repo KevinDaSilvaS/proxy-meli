@@ -1,6 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.APP_PORT
 const rules = require('./app/rules/rules')
 const metrics = require('./app/monitoring/metrics')
 const proxy = require('./app/proxy/proxy')

@@ -2,7 +2,7 @@ const { Client } = require('@elastic/elasticsearch')
 
 const conn = async () => {
     const connection = await new Client({
-        node: 'http://localhost:9200/'
+        node: process.env.DB_HOST
     })
 
     return connection
