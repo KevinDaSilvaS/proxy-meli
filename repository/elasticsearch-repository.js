@@ -11,7 +11,7 @@ const conn = async () => {
 const create = async (document, index, elasticsearchConnection) => {
     const inserted = await elasticsearchConnection.index({ index, document })
     await elasticsearchConnection.indices.refresh({ index })
-    return await getOne({id: inserted._id}, "rules", elasticsearchConnection)
+    return await getOne({id: inserted._id}, index, elasticsearchConnection)
 }
 
 const search = async (query, index, elasticsearchConnection) => {
