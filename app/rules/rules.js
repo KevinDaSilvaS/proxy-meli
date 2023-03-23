@@ -5,8 +5,10 @@ const supportedRuleTypes = {
     path: "path"
 }
 
+const index = "rules"
+
 const getRule = async (type, repository) => {
-    return await repository.db.getOneSearch({type}, "rules", repository.dbConn)
+    return await repository.db.getOneSearch({type}, index, repository.dbConn)
 }
 
 const addRule = async (rule, repository) => {    
@@ -25,14 +27,14 @@ const addRule = async (rule, repository) => {
 
     const createdRule = await repository.db.create(
         rule, 
-        "rules", 
+        index, 
         repository.dbConn)
 
     return { status: 201, body: createdRule } 
 }
 
 const removeRule = async (type, repository) => {
-    await repository.db.remove({type}, "rules", repository.dbConn)
+    await repository.db.remove({type}, index, repository.dbConn)
     return { status: 204, body: {} }
 }
 
