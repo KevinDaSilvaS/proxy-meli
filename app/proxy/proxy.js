@@ -15,26 +15,25 @@ const createRequestObject = req => ({
 const proxy = async (req, repository) => {
     const reqObject = createRequestObject(req)
 
-    const ip = supportedRuleTypes.ip
+    const {ip, path} = supportedRuleTypes
+
     const ruleIp = await getRule(ip, repository)
     const ipKey = reqObject[ip]
     const reachedMaxRequestsByIp =
         await checkMaxRequests(repository, ipKey, ruleIp)
 
-    const path = supportedRuleTypes.path
     const rulePath = await getRule(path, repository)
     const pathKey = reqObject[path]
     const reachedMaxRequestsByPath =
         await checkMaxRequests(repository, pathKey, rulePath)
 
     if (reachedMaxRequestsByIp) {
-        addMetric(reqObject, repository)
+        await addMetric({...reqObject, max_reached: ip}, repository)
         return commonResponses.max_requests_reached
     }
-        
 
     if (reachedMaxRequestsByPath) {
-        addMetric(reqObject, repository)
+        await addMetric({...reqObject, max_reached: path}, repository)
         return commonResponses.max_requests_reached
     }  
 
@@ -45,7 +44,7 @@ const proxy = async (req, repository) => {
         await addRequestCount(repository, pathKey, rulePath._source.expiration_every)
 
     callApi(reqObject)
-    addMetric(reqObject, repository)
+    await addMetric(reqObject, repository)
     return { status: 200, body: { api: 'success' } }
 }
 
