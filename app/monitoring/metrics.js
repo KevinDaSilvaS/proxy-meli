@@ -1,5 +1,7 @@
-const addMetric = (metric, repository) => {
-    //console.log("add metric")
+const index = "metrics"
+
+const addMetric = async (metric, repository) => {
+    return await repository.db.create(metric, index, repository.dbConn)
 }
 
 const getMetrics = (filters, repository) => {
