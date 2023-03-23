@@ -2,7 +2,7 @@ const createResponse = (status, body) => ({ status, body })
 
 const commonResponses = {
     max_requests_reached: createResponse(400, {
-        error: 'Given info reached max requests'
+        error: 'Given endpoint reached max requests by defined rule'
     }),
     rule_type_not_supported: createResponse(400, {
         error: 'Type informed is not supported'
