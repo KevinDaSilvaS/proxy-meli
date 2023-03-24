@@ -1,8 +1,9 @@
 const { Client } = require('@elastic/elasticsearch')
+require('dotenv').config()
 
 const conn = async () => {
     const connection = await new Client({
-        node: process.env.DB_HOST
+        node: process.env.DB_HOST 
     })
 
     return connection
@@ -48,10 +49,17 @@ getOneSearch = async (query, index, elasticsearchConnection) => {
 const getOne = async (query, index, elasticsearchConnection) => 
     await elasticsearchConnection.get({index, ...query})
 
+const sql = async (query, index, elasticsearchConnection) => {
+    return await elasticsearchConnection.sql.query({
+        query
+    }, index)
+}
+
 module.exports = {
     getOneSearch,
     conn,
     create,
     remove,
-    search
+    search,
+    sql
 }
