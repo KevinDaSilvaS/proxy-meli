@@ -1,3 +1,4 @@
+const { createResponse } = require('../../helpers/response')
 const index = "metrics"
 
 const addMetric = async (metric, repository) => {
@@ -6,11 +7,8 @@ const addMetric = async (metric, repository) => {
 
 const getMetrics = async (filters, repository) => {
     filters = mapFilters(filters)
-
-    return {
-        status: 200,
-        body: await fetchData(filters, index, repository)
-    }
+    const body = await fetchData(filters, index, repository)
+    return createResponse(200, body)
 }
 
 const fetchData = async (data, index, repository) => {
