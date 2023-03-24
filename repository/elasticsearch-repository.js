@@ -32,9 +32,9 @@ const search = async (query, index, elasticsearchConnection) => {
 
 const remove = async (query, index, elasticsearchConnection) => {
     const res = await getOneSearch(query, index, elasticsearchConnection)
-    if (!res) {
+    if (!res) 
         return 
-    }
+    
     await elasticsearchConnection.delete({
         id: res._id,
         index
