@@ -29,7 +29,8 @@ node index.js
 Para facilitar o teste, o projeto conta com uma coleção http que pode ser rodada no [insomnia](https://insomnia.rest/download) sob o nome de Insomnia_collection
 
 ## Sobre a arquitetura
-![arch](https://raw.githubusercontent.com/KevinDaSilvaS/proxy-meli/main/arch.png)
+
+<img src="https://raw.githubusercontent.com/KevinDaSilvaS/proxy-meli/main/arch.png">
 
 A aplicação possui 3 dominios distintos: Rules, Metrics e Proxy
 
