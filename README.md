@@ -24,3 +24,6 @@ e uma vez que os bancos ja estejam de pé basta rodar:
 node index.js 
 ```
 
+## Guia de teste
+
+Para facilitar o teste, o projeto conta com uma coleção http que pode ser rodada no [insomnia](https://insomnia.rest/download)
