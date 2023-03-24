@@ -14,3 +14,18 @@ services:
         image: redis
         ports:
             - "${REDIS_PORT}:6379"
+
+    #app:
+    #    image: app
+    #    environment: 
+    #        - REDIS_HOST=redis
+    #        - DB_HOST=http://elasticsearch:${DB_PORT}/
+    #        - API_URL=${API_URL}
+    #        - APP_PORT=${APP_PORT}
+    #    build: 
+    #        context: .
+    #    ports: 
+    #        - "${APP_PORT}:3000"
+    #    links:
+    #        - redis
+    #        - elasticsearch
