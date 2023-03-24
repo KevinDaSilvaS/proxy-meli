@@ -30,7 +30,7 @@ Para facilitar o teste, o projeto conta com uma coleção http que pode ser roda
 
 ## Sobre a arquitetura
 
-<img src="https://raw.githubusercontent.com/KevinDaSilvaS/proxy-meli/main/arch.png](https://raw.githubusercontent.com/KevinDaSilvaS/proxy-meli/main/arch.png?token=GHSAT0AAAAAAB5WVO6OCVWIFD3SFNQDCV3MZA56WGA">
+<img src="./arch.png">
 
 A aplicação possui 3 dominios distintos: Rules, Metrics e Proxy
 
