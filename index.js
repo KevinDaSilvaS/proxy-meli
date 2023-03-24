@@ -46,7 +46,7 @@ app.delete('/rules/:type', async (req, res) => {
 })
 
 app.get('/metrics', async (req, res) => {
-  const {status, body} = metrics.getMetrics("filters", true)
+  const {status, body} = await metrics.getMetrics(req.query, repository)
   res.status(status).send(body)
 })
 
