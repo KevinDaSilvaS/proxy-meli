@@ -30,3 +30,9 @@ Para facilitar o teste, o projeto conta com uma coleção http que pode ser roda
 
 ## Sobre a arquitetura
 ![arch](https://raw.githubusercontent.com/KevinDaSilvaS/proxy-meli/main/arch.png?token=GHSAT0AAAAAAB5WVO6O3ADULQQSWXXSGVOMZA56JQQ)
+
+A aplicação possui 3 dominios distintos: Rules, Metrics e Proxy
+
+Rules é responsável por criar e remover regras de acesso como o tipo(ip ou path), o numero maximo de requests e em quanto tempo em segundos as requests podem ser resetadas, por exemplo:
+  - Uma regra que permita que cada ip faça um maximo de 10 requisições por segundo
+ 
