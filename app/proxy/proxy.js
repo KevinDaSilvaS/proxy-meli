@@ -9,7 +9,8 @@ const createRequestObject = req => ({
     ip: req.ip,
     headers: req.headers,
     method: req.method,
-    body: req.body
+    body: req.body,
+    query: req.query
 })
 
 const proxy = async (req, repository) => {
