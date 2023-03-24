@@ -47,12 +47,10 @@ getOneSearch = async (query, index, elasticsearchConnection) => {
 }
     
 const getOne = async (query, index, elasticsearchConnection) => 
-    await elasticsearchConnection.get({index, ...query})
+    await elasticsearchConnection.get({ index, ...query })
 
 const sql = async (query, index, elasticsearchConnection) => {
-    return await elasticsearchConnection.sql.query({
-        query
-    }, index)
+    return await elasticsearchConnection.sql.query({ query }, index)
 }
 
 module.exports = {
