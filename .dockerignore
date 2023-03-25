@@ -6,3 +6,4 @@ Insomnia_collection.json
 .env.example
 docker-compose.yml
 Dockerfile
+coverage
