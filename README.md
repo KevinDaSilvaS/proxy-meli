@@ -55,9 +55,15 @@ Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest atr
 	}
       ```
   - [DELETE] Remover uma regra (http://localhost:3000/rules/:type)
+  
 - METRICS
-  -  [GET] Visualizar metricas (http://localhost:3000/metrics)
-     - http://localhost:3000/metrics?type=path&max_requests_reached=true
+  -  [GET] Visualizar todas as metricas (http://localhost:3000/metrics) e para filtrar basta usar os seguintes query params:
+     - Para obter os paths que atingiram o maximo de requisições ?type=path&max_requests_reached=true
+     - Para obter os ips que atingiram o maximo de requisições ?type=ip&max_requests_reached=true
+     - Para agrupar ordenar as requests mais acessadas por path e ip ?type=path&count_requests=true
+
+- PROXY
+  -  [ANY] Chamar um endpoint da api configurada (http://localhost:3000/)
       
 
  
