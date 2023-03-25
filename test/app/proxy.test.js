@@ -1,8 +1,12 @@
 const proxy = require('../../app/proxy/proxy')
+const httpClient = require('../../app/proxy/call-api')
+
+jest.mock('../../app/proxy/call-api')
 
 describe('proxy module', () => {
     describe('proxy', () => {
         test('proxy a request', async () => {
+            httpClient.callApi.mockResolvedValue({status: 200, body: {}})
             const mockRepository = {
                 db: { 
                     create: () => true,
@@ -16,6 +20,7 @@ describe('proxy module', () => {
 
             const result = await proxy.proxy({type: "path", query: {}}, mockRepository)
             expect(result).toBeDefined()
+            expect(result.status).toBe(200)
         })
 
         test('should return error when max requests are reached for ip', async () => {
@@ -52,6 +57,24 @@ describe('proxy module', () => {
             expect(result).toBeDefined()
             expect(result.status).toBe(400)
             expect(result.body.error).toBe('Given endpoint reached max requests by defined rule')
+        })
+
+        test('when an error occurs', async () => {
+            httpClient.callApi.mockResolvedValue({status: 500, body: {}})
+            const mockRepository = {
+                db: { 
+                    create: () => true,
+                    getOneSearch: () => ({ _source: {max_requests: 3}}),
+                },
+                cache: {
+                    getCache: () => 1,
+                    putCache: () => 1
+                }
+            }
+
+            const result = await proxy.proxy({type: "path", query: {}}, mockRepository)
+            expect(result).toBeDefined()
+            expect(result.status).toBe(500)
         })
     })
 })
