@@ -65,5 +65,13 @@ Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest atr
 - PROXY
   -  [ANY] Chamar um endpoint da api configurada (http://localhost:3000/)
       
+## Sobre os testes unitários
 
- 
+Para executar os testes unitarios basta rodar
+```
+	npm run test
+```
+ou para obter o coverage
+```
+	npm run coverage
+```
