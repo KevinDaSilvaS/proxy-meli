@@ -1,3 +1,8 @@
 node_modules
 s.js
 .env
+arch.png
+Insomnia_collection.json
+.env.example
+docker-compose.yml
+Dockerfile
