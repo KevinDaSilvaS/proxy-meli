@@ -69,9 +69,9 @@ Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest atr
 
 Para executar os testes unitarios basta rodar
 ```
-	npm run test
+npm run test
 ```
 ou para obter o coverage
 ```
-	npm run coverage
+npm run coverage
 ```
