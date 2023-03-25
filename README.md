@@ -54,5 +54,10 @@ Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest atr
 	"expiration_every": 60
 	}
       ```
+  - [DELETE] Remover uma regra (http://localhost:3000/rules/:type)
+- METRICS
+  -  [GET] Visualizar metricas (http://localhost:3000/metrics)
+     - http://localhost:3000/metrics?type=path&max_requests_reached=true
+      
 
  
