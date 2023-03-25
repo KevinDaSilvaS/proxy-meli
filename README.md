@@ -39,7 +39,7 @@ Rules é responsável por criar e remover regras de acesso como o tipo(ip ou pat
 
 Proxy é responsavel por receber uma request e ver se determinado ip ou path atingiu o numero maximo de requests, se sim retorna um 400 informando o ocorrido, caso não adiciona em mais um o contador de requests no redis e adiciona uma metrica no elasticsearch e após isso chama a api e devolve seu resultado para o usuario
 
-Metrics é reponsavel por guardar e pesquisar o historico das requests, se a request atingiu seu maximo de requests na regra, quantas vezes determinado ip e path foram acessados etc
+Metrics é responsavel por guardar e pesquisar o historico das requests, se a request atingiu seu maximo de requests na regra, quantas vezes determinado ip e path foram acessados etc
 
 Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest através dos endpoints listados na collection do insomnia
 
