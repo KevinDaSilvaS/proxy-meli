@@ -7,3 +7,4 @@ Insomnia_collection.json
 docker-compose.yml
 Dockerfile
 coverage
+test
