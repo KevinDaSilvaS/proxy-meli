@@ -43,5 +43,16 @@ Metrics é reponsavel por guardar e pesquisar o historico das requests, se a req
 
 Tanto Rules, Proxy e Metrics podem ser configurados e acessados via api rest através dos endpoints listados na collection do insomnia
 
+## Sobre os endpoints
+
+- RULES
+  - [POST] Add Rule (http://localhost:3000/rules/)
+      ```
+      {
+	"type": "path",		
+	"max_requests": 10,		
+	"expiration_every": 60
+}
+      ```
 
  
