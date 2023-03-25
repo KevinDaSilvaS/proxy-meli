@@ -19,6 +19,7 @@ services:
     #    image: app
     #    environment: 
     #        - REDIS_HOST=redis
+    #        - REDIS_PORT=${REDIS_PORT}
     #        - DB_HOST=http://elasticsearch:${DB_PORT}/
     #        - API_URL=${API_URL}
     #        - APP_PORT=${APP_PORT}
