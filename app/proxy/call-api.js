@@ -14,7 +14,7 @@ const callApi = async requestObject => {
             headers: sanitizeHeaders(headers)
         })
 
-        return createResponse(200, res.data, res.headers)
+        return createResponse(res.status, res.data, res.headers)
     } catch (error) {
         return createResponse(500, { error: error.message })
     }
