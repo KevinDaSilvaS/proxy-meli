@@ -15,21 +15,22 @@ services:
         ports:
             - "${REDIS_PORT}:6379"
 
-    #app:
-    #    image: app
-    #    environment: 
-    #        - REDIS_HOST=redis
-    #        - REDIS_PORT=${REDIS_PORT}
-    #        - DB_HOST=http://elasticsearch:${DB_PORT}/
-    #        - API_URL=${API_URL}
-    #        - APP_PORT=${APP_PORT}
-    #    depends_on:
-    #        - elasticsearch
-    #        - redis
-    #    build: 
-    #        context: .
-    #    ports: 
-    #        - "${APP_PORT}:3000"
-    #    links:
-    #        - redis
-    #        - elasticsearch
+    app:
+        image: app
+        environment: 
+            - REDIS_HOST=redis
+            - REDIS_PORT=${REDIS_PORT}
+            - DB_HOST=http://elasticsearch:${DB_PORT}/
+            - API_URL=${API_URL}
+            - APP_PORT=${APP_PORT}
+        depends_on:
+            - elasticsearch
+            - redis
+        restart: always
+        build: 
+            context: .
+        ports: 
+            - "${APP_PORT}:3000"
+        links:
+            - redis
+            - elasticsearch
