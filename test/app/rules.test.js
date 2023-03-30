@@ -70,7 +70,7 @@ describe('rules module', () => {
 
             const result = await rules.addRule({type: "path"}, mockRepository)
             expect(result).toBeDefined()
-            expect(result.status).toBe(400)
+            expect(result.status).toBe(409)
             expect(result.body.error).toBe('There\'s an existing rule with this type, delete existing rule first, then try again')
         })
     })

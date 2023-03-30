@@ -37,7 +37,7 @@ describe('proxy module', () => {
 
             const result = await proxy.proxy({ip: "ip", query: {}}, mockRepository)
             expect(result).toBeDefined()
-            expect(result.status).toBe(400)
+            expect(result.status).toBe(429)
             expect(result.body.error).toBe('Given endpoint reached max requests by defined rule')
         })
 
@@ -55,7 +55,7 @@ describe('proxy module', () => {
 
             const result = await proxy.proxy({path: "path", query: {}}, mockRepository)
             expect(result).toBeDefined()
-            expect(result.status).toBe(400)
+            expect(result.status).toBe(429)
             expect(result.body.error).toBe('Given endpoint reached max requests by defined rule')
         })
 
