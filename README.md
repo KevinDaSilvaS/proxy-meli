@@ -7,7 +7,7 @@ Como o guia de getting started da api do MELI já não possuia mais suporte para
 ## Guia de uso
 Criar um arquivo .env e copiar o conteudo de exemplo do env.example
 
-### Para utilizar apenas o docker basta descomentar as linhas do app do arquivo docker-compose.yml e rodar
+### Para utilizar apenas o docker basta rodar:
 
 Para rodar no docker: 
 ```
@@ -16,7 +16,7 @@ docker-compose up -d --build
 
 ### Para rodar localmente com node.js basta rodar o seguinte comando: 
 ```
-docker-compose up -d --build
+docker-compose up redis elasticsearch
 ```
 
 e uma vez que os bancos ja estejam de pé basta rodar: 
