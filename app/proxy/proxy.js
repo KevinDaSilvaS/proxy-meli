@@ -29,12 +29,12 @@ const proxy = async (req, repository) => {
         await checkMaxRequests(repository, pathKey, rulePath)
 
     if (reachedMaxRequestsByIp) {
-        await addMetric({...reqObject, max_reached: ip}, repository)
+        addMetric({...reqObject, max_reached: ip}, repository)
         return commonResponses.max_requests_reached
     }
 
     if (reachedMaxRequestsByPath) {
-        await addMetric({...reqObject, max_reached: path}, repository)
+        addMetric({...reqObject, max_reached: path}, repository)
         return commonResponses.max_requests_reached
     }  
 
@@ -44,7 +44,7 @@ const proxy = async (req, repository) => {
     if (rulePath) 
         await addRequestCount(repository, pathKey, rulePath._source.expiration_every)
 
-    await addMetric(reqObject, repository)
+    addMetric(reqObject, repository)
     return await callApi(reqObject)
 }
 
